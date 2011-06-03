@@ -1,0 +1,9 @@
+Small experimental RPC API using bottle web framework and jQuery
+================================================================
+
+Yes, it's reinventing the wheel. It was just an exercise.
+
+The codebase serves as an example implementation as well, and includes a
+hhtpy-rpc plugin for jQuery.
+
+The static/js/test.js contains a very simple use-case example.
