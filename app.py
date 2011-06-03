@@ -69,7 +69,13 @@ def rpc(mod, func):
     if not all([function, callable(function)]):
         raise HTTPResponse('Function %s is not callable.' % func, 400)
 
-    result = function(**request.params)
+    if request.params.get('_args[]'):
+        args = request.params.get('_args[]')
+        if not isinstance(args, list):
+            args = [args]
+        result = function(*args)
+    else:
+        result = function(**request.params)
 
     if isinstance(result, dict):
         return result
